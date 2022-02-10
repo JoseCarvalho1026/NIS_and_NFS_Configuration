@@ -14,7 +14,7 @@
 
 ◻️ Go to super user `sudo su -`;
 
-◻️ `nano /etc/hosts` Inside that folder you will place the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
+◻️ `nano /etc/hosts` Inside that text document you will put the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
 
 ![nis7](https://user-images.githubusercontent.com/48421530/153506257-deca5eb7-28f4-4671-9359-0a4d65f885d7.png)
 
