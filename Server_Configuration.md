@@ -4,7 +4,7 @@
 
 🔴 1 Instance (Server);
 
-🔴 1 Elastic IPs (for each instance).
+🔴 1 Elastic IPs (for instance).
 
 # **In Termius**
 
