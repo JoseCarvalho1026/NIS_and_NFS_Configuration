@@ -76,7 +76,7 @@ and pay attention, if you have changed the name of the folder and the site, chan
 
 ![nis2](https://user-images.githubusercontent.com/48421530/153502445-ea878e6b-b3f6-460a-9032-57308b469b5a.png)
 
-◻️ `nano /etc/yp.conf` ⤵️
+◻️ `nano /etc/yp.conf` ⤵️(isto é no cliente)
 
 ![nis 6](https://user-images.githubusercontent.com/48421530/153504762-3f2614c4-c447-4cef-b5b8-5bed63f069e6.png)
 
