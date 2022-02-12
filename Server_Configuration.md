@@ -1,14 +1,14 @@
 # NIS_and_NFS - Server_Configuration
 
-# **In AWS**
+# In AWS
 
 🔴 1 Instance (Server);
 
-🔴 1 Elastic IPs (for instance).
+🔴 1 Elastic IP (for instance).
 
-# **In Termius**
+# In Termius
 
-## **NFS**
+## NFS
 
 ◻️ First define the server name, for example: `sudo hostnamectl set-hostname example.example.com`;
 
@@ -95,11 +95,3 @@ and pay attention, if you have changed the name of the folder and the site, chan
 ◻️ `systemctl restart nis` and `systemctl status nis` para visualizar se o nis está a funcionar
 
 ◻️ `cd /var/yp` and `make`
-
-
-
-
-
-
-
-
