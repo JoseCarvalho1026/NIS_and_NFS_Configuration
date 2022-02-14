@@ -20,7 +20,7 @@
 
 ◻️ Update and upgrade your client `apt update && apt upgrade` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
 
-◻️ After doing update and upgrade, NFS will be installed `apt install nfs-common`;
+◻️ After doing update and upgrade, NFS will be installed `apt install nfs-common -y`;
 
 ◻️ After installation you will create a folder with the same name that was created on the server `mkdir /var/homes`;
 
