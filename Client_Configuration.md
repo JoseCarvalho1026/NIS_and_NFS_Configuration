@@ -14,15 +14,15 @@
 
 ◻️ Go to super user `sudo su -`;
 
-◻️ `nano /etc/hosts` Inside that text document you will put the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
+◻️ `nano /etc/hosts` Inside that text document you will insert the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
 
 ![nis7](https://user-images.githubusercontent.com/48421530/153506257-deca5eb7-28f4-4671-9359-0a4d65f885d7.png)
 
 ◻️ Update and upgrade your client `apt update && apt upgrade` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
 
-◻️ After doing update and upgrade, NFS will be installed `apt install nfs-common -y`;
+◻️ After doing the update and upgrade, NFS will be installed `apt install nfs-common -y`;
 
-◻️ After installation you will create a folder with the same name that was created on the server `mkdir /var/homes`;
+◻️ After the installation you will create a folder with the same name that was created on the server `mkdir /var/homes`;
 
 ◻️ `mount -t nfs x.x.x.x:/var/homes /var/homes/` (“x.x.x.x” is Private IP SRV);
 
