@@ -14,7 +14,7 @@
 
 ◻️ Go to super user `sudo su -`;
 
-◻️ `nano /etc/hosts` Inside that folder you will place the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
+◻️ `nano /etc/hosts` Inside that folder you will insert the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
 
 ```
 127.0.0.1 localhost
@@ -30,9 +30,9 @@ ff02::3 ip6-allhosts
 
 ◻️ Update and upgrade your server `apt update && apt upgrade` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
 
-◻️ After doing update and upgrade, NFS will be installed `apt install nfs-kernel-server`;
+◻️ After doing the update and upgrade, NFS will be installed `apt install nfs-kernel-server`;
 
-◻️ After installation you will create a folder where you will contain your users, for example: `mkdir /var/homes`;
+◻️ After the installation you will create a folder where you will contain your users, for example: `mkdir /var/homes`;
 
 ◻️ `nano /etc/export` Add the following line at the end of the document `/var/homes *(rw,sync,no_subtree_check,no_root_squash)`
 
@@ -50,7 +50,7 @@ ff02::3 ip6-allhosts
 /var/homes *(rw,sync,no_subtree_check,no_root_squash)
 ```
 
-and pay attention, if you have changed the name of the folder and the site, change what says `/var/homes ...` for the respective change;
+and pay attention, if you have changed the name of the folder and the site, change the `/var/homes ...` for the correct alternaive;
 
 ◻️ `exportfs -a` serves to implement the line that was placed in the `nano /etc/export`;
 
@@ -84,7 +84,7 @@ and pay attention, if you have changed the name of the folder and the site, chan
 
 ![nis3](https://user-images.githubusercontent.com/48421530/153503129-5cfe6ba2-227f-4bfe-9dca-0695ba854a10.png)
 
-◻️ `nano /var/yp/Makefile` linha 52 e 56 mudar de false para true ⤵️
+◻️ `nano /var/yp/Makefile` change the lines 52 and 56 (false to true) ⤵️
 
 ![nis4](https://user-images.githubusercontent.com/48421530/153503160-14597768-bb4a-464c-acad-c4e8518e333c.png)
 
@@ -92,6 +92,6 @@ and pay attention, if you have changed the name of the folder and the site, chan
 
 ![nis 5](https://user-images.githubusercontent.com/48421530/153504412-bda4b4b1-cbd6-4947-b944-3568a2bf0ba9.png)
 
-◻️ `systemctl restart nis` and `systemctl status nis` para visualizar se o nis está a funcionar
+◻️ `systemctl restart nis` and `systemctl status nis` to see if the nis is working
 
 ◻️ `cd /var/yp` and `make`
