@@ -1,24 +1,18 @@
 # NIS_and_NFS - Server_Configuration
 
-# In AWS
-
-🔴 1 Instance (Server);
-
-🔴 1 Elastic IP (for instance).
+### In "central.inova.pt" after having made RAID-5
 
 # In Termius
 
 ## NFS
 
-◻️ First define the server name, for example: `sudo hostnamectl set-hostname example.example.com`;
-
 ◻️ Go to super user `sudo su -`;
 
-◻️ `nano /etc/hosts` Inside that folder you will insert the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
+◻️ `nano /etc/hosts` Inside that folder you will insert the following code (code that will associate the IP to the respective names) `192.168.2.150 central.inova.pt central inova.pt` ;
 
 ```
 127.0.0.1 localhost
-x.x.x.x example.example.com example example.com
+192.168.2.150 central.inova.pt central inova.pt
 # The following lines are desirable for IPv6 capable hosts
 ::1 ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -28,13 +22,13 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 ```
 
-◻️ Update and upgrade your server `apt update && apt upgrade` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
+◻️ Update and upgrade your server `apt update -y && apt upgrade -y` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
 
 ◻️ After doing the update and upgrade, NFS will be installed `apt install nfs-kernel-server`;
 
-◻️ After the installation you will create a folder where you will contain your users, for example: `mkdir /var/homes`;
+◻️ After the installation you will create a folder where you will contain your users, for example: `mkdir /mnt/user`;
 
-◻️ `nano /etc/exports` Add the following line at the end of the document `/var/homes *(rw,sync,no_subtree_check,no_root_squash)`
+◻️ `nano /etc/exports` Add the following line at the end of the document `/mnt/user *(rw,sync,no_subtree_check,no_root_squash)`
 
 ```
 # /etc/exports: the access control list for filesystems which may be exported
@@ -47,42 +41,55 @@ ff02::3 ip6-allhosts
 # /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
 # /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
 #
-/var/homes *(rw,sync,no_subtree_check,no_root_squash)
+/mnt/user *(rw,sync,no_subtree_check,no_root_squash)
 ```
 
-and pay attention, if you have changed the name of the folder and the site, change the `/var/homes ...` for the correct alternaive;
+and pay attention, if you have changed the name of the folder and the site, change the `/mnt/user ...` for the correct alternaive;
 
 ◻️ `exportfs -a` serves to implement the line that was placed in the `nano /etc/export`;
 
 ◻️ After all that, enable NFS service `systemctl enable --now nfs-kernel-server`.
 
-### Add users to folder `/etc/hosts`.
+### Add users to folder `/mnt/user`.
 
-◻️ `adduser user --home /var/homes/user`;
+◻️ `adduser sales --home /mnt/user/sales` ;
 
-◻️ `echo xfce4-session > /var/homes/user/.xsession`;
+◻️ `adduser marketing --home /mnt/user/marketing` ;
 
-◻️ `chown user:user /var/homes/user/.xsession`;
+◻️ `echo xfce4-session > /mnt/user/marketing/.xsession` ;
 
-> You can add more users, just change the `user` to any other name of your choice.
+◻️ `echo xfce4-session > /mnt/user/sales/.xsession` ;
+
+◻️ `chown sales:sales /mnt/user/sales/.xsession` ;
+
+◻️ `chown marketing:marketing /mnt/user/marketing/.xsession` ;
+
+> You can add more users, just change the `sales` or `marketing` to any other name of your choice.
 
 ## **NIS**
 
 ◻️ `apt -y install nis`
 
-![NIS](https://user-images.githubusercontent.com/48421530/153502048-ea7272a1-3665-4289-8c7f-a6b7790b9f09.png)
-
+NIS domain
+```
+inova.pt
+```
 ◻️ `nano /etc/default/nis` change from false to master, as it can be seen on the following image ⤵️
 
 ![nis2](https://user-images.githubusercontent.com/48421530/153502445-ea878e6b-b3f6-460a-9032-57308b469b5a.png)
 
-◻️ `nano /etc/yp.conf` ⤵️
+◻️ `nano /etc/yp.conf` add at the end `domain inova.pt server central.inova.pt` ;
 
-![nis 6](https://user-images.githubusercontent.com/48421530/153504762-3f2614c4-c447-4cef-b5b8-5bed63f069e6.png)
+◻️ `nano /etc/ypserv.securenets` 
 
-◻️ `nano /etc/ypserv.securenets` ⤵️
-
-![nis3](https://user-images.githubusercontent.com/48421530/153503129-5cfe6ba2-227f-4bfe-9dca-0695ba854a10.png)
+Comentar:
+```
+0.0.0.0      0.0.0.0
+``` 
+E mudar para:
+```
+255.255.0.0      192.168.0.0
+```
 
 ◻️ `nano /var/yp/Makefile` change from false to true the lines 52 and 56 ⤵️
 
