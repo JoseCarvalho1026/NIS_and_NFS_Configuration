@@ -1,6 +1,6 @@
 # NIS_and_NFS - Server_Configuration
 
-### In "central.inova.pt" after having made RAID-5
+🔴 In "central.inova.pt" after having made RAID-5
 
 # In Termius
 
