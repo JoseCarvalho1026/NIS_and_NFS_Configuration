@@ -34,7 +34,7 @@ ff02::3 ip6-allhosts
 
 ◻️ After the installation you will create a folder where you will contain your users, for example: `mkdir /var/homes`;
 
-◻️ `nano /etc/export` Add the following line at the end of the document `/var/homes *(rw,sync,no_subtree_check,no_root_squash)`
+◻️ `nano /etc/exports` Add the following line at the end of the document `/var/homes *(rw,sync,no_subtree_check,no_root_squash)`
 
 ```
 # /etc/exports: the access control list for filesystems which may be exported
