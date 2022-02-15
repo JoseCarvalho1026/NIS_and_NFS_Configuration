@@ -82,11 +82,11 @@ inova.pt
 
 ◻️ `nano /etc/ypserv.securenets` 
 
-Comentar:
+Comment:
 ```
 0.0.0.0      0.0.0.0
 ``` 
-E mudar para:
+And change to:
 ```
 255.255.0.0      192.168.0.0
 ```
