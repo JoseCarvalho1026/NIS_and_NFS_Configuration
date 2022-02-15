@@ -1,42 +1,46 @@
 # NIS_and_NFS - Client_Configuration
 
-# **In AWS**
-
-🔴 1 Instance (Client);
-
-🔴 1 Elastic IP (for each instance).
+In "sales.inova.pt" and "marketing.inova.pt" after having made NIS and NFS
 
 # **In Termius**
 
 ## **NFS**
 
-◻️ First define the server name, for example: `sudo hostnamectl set-hostname client.example.com`;
-
 ◻️ Go to super user `sudo su -`;
 
-◻️ `nano /etc/hosts` Inside that text document you will insert the following code (code that will associate the IP to the respective names) `x.x.x.x example.example.com example example.com` (“x.x.x.x” is Private IP Server);
+◻️ `nano /etc/hosts` Inside that text document you will insert the following code (code that will associate the IP to the respective names) `192.168.2.150 central.inova.pt central inova.pt` ;
 
-![nis7](https://user-images.githubusercontent.com/48421530/153506257-deca5eb7-28f4-4671-9359-0a4d65f885d7.png)
+```
+127.0.0.1 localhost
+192.168.2.150 central.inova.pt central inova.pt
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+```
 
-◻️ Update and upgrade your client `apt update && apt upgrade` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
+◻️ Update and upgrade your client `apt update -y && apt upgrade -y` ❓ In case of doubt, the "&&" serves as an "and", as an example the previous code is to update "and" upgrade;
 
 ◻️ After doing the update and upgrade, NFS will be installed `apt install nfs-common -y`;
 
-◻️ After the installation you will create a folder with the same name that was created on the server `mkdir /var/homes`;
+◻️ After the installation you will create a folder with the same name that was created on the server `mkdir /mnt/user`;
 
-◻️ `mount -t nfs x.x.x.x:/var/homes /var/homes/` (“x.x.x.x” is Private IP SRV);
+◻️ `mount -t nfs 192.168.2.150:/mnt/user /mnt/user/` ;
 
 ◻️ `cat /etc/mtab` (copy last line to `/etc/fstab` and add ,nofail)
 
 ## **NIS**
 
-◻️ `apt -y install nis` ⤵️
+◻️ `apt -y install nis` ;
 
-![NIS](https://user-images.githubusercontent.com/48421530/153502048-ea7272a1-3665-4289-8c7f-a6b7790b9f09.png)
-
-◻️ `nano /etc/yp.conf` ⤵️
-
-![nis 6](https://user-images.githubusercontent.com/48421530/153504762-3f2614c4-c447-4cef-b5b8-5bed63f069e6.png)
+NIS domain
+```
+inova.pt
+```
+◻️ `nano /etc/yp.conf` add at the end `domain inova.pt server central.inova.pt` ;
 
 ◻️ `nano /etc/nsswitch.conf` ⤵️
 
