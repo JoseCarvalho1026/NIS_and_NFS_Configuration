@@ -72,7 +72,7 @@ and pay attention, if you have changed the name of the folder and the site, chan
 
 ![NIS](https://user-images.githubusercontent.com/48421530/153502048-ea7272a1-3665-4289-8c7f-a6b7790b9f09.png)
 
-◻️ `nano /etc/default/nis` mudar de false para master, como pode ser visto na imagem abaixo ⤵️
+◻️ `nano /etc/default/nis` change from false to master, as it can be seen on the following image ⤵️
 
 ![nis2](https://user-images.githubusercontent.com/48421530/153502445-ea878e6b-b3f6-460a-9032-57308b469b5a.png)
 
@@ -84,7 +84,7 @@ and pay attention, if you have changed the name of the folder and the site, chan
 
 ![nis3](https://user-images.githubusercontent.com/48421530/153503129-5cfe6ba2-227f-4bfe-9dca-0695ba854a10.png)
 
-◻️ `nano /var/yp/Makefile` change the lines 52 and 56 (false to true) ⤵️
+◻️ `nano /var/yp/Makefile` change from false to true the lines 52 and 56 ⤵️
 
 ![nis4](https://user-images.githubusercontent.com/48421530/153503160-14597768-bb4a-464c-acad-c4e8518e333c.png)
 
